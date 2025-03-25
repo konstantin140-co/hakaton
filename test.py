@@ -4,7 +4,7 @@ from socket import *
 
 SERV_IP = "127.0.0.1"
 SERV_PORT = 6501
-serv = (SERV_IP,SERV_PORT)
+serv = (SERV_IP, SERV_PORT)
 
 class Data:
     value = 0.0
@@ -27,8 +27,8 @@ class DataTransforms:
 class Client:
     @staticmethod
     def send_data(array):
-        UDPClientSocet = socket(family = AF_INET, type = SOCK_DGRAM)
-        bts =[struct.pack('d',f) for f in array]
+        UDPClientSocet = socket(family=AF_INET, type=SOCK_DGRAM)
+        bts =[struct.pack('d', f) for f in array]
         UDPClientSocet.sendto(b''.join(bts), serv)
 
     @staticmethod
@@ -40,7 +40,7 @@ class Client:
 
 if __name__ == '__main__':
     try:
-        UDPClientSocket = socket(family = AF_INET, type = SOCK_DGRAM)
+        UDPClientSocket = socket(family=AF_INET, type=SOCK_DGRAM)
         UDPClientSocket.bind(('127.0.0.1', 6502))
         client = Client()
         send_array = [0 for _ in range(10)]

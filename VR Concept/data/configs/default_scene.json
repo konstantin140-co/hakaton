@@ -1,0 +1,32 @@
+{
+  "component name": "default",
+  "inputs": [
+    [
+      {
+        "name": "pos",
+        "size": 4,
+        "binding": 0,
+        "stride": 3,
+        "divisor": 0
+      },
+      {
+        "name": "normal",
+        "size": 4,
+        "binding": 1,
+        "stride": 3,
+        "divisor": 0
+      },
+      {
+        "name": "uv",
+        "size": 4,
+        "binding": 2,
+        "stride": 2,
+        "divisor": 0
+      }
+    ]
+  ],
+  "ebo": "u32",
+  "type": "Scene"
+}  
+ 
+ 

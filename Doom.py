@@ -1,142 +1,151 @@
 import struct
-import time
-import threading
 import pygame
-import random
+import time
 from socket import *
+from threading import Thread
 
-# Настройки игры
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+
+SERVER_IP = '127.0.0.1'
+SERVER_PORT = 6501
+server_address_port = (SERVER_IP, SERVER_PORT)
+SCREEN_SIZE = (800, 600)
 PLAYER_SPEED = 5
 BULLET_SPEED = 10
 
-# Сетевые настройки
-SERV_IP = "127.0.0.1"
-SERV_PORT = 6501
-serv = (SERV_IP, SERV_PORT)
-
-def find_available_port(start_port=6502, max_port=6510):
-    for port in range(start_port, max_port + 1):
-        try:
-            sock = socket(family=AF_INET, type=SOCK_DGRAM)
-            sock.bind(('127.0.0.1', port))
-            sock.close()
-            return port
-        except OSError:
-            continue
-    raise RuntimeError(f"Could not find an available port between {start_port} and {max_port}")
-
-class GameData:
+class GameClient:
     def __init__(self):
-        self.player_x = SCREEN_WIDTH // 2
-        self.player_y = SCREEN_HEIGHT // 2
+        self.player = {"x": SCREEN_SIZE[0]//2, "y": SCREEN_SIZE[1]//2}
         self.bullets = []
-        self.enemies = []
+        self.running = True
+        self.session_id = None
+class Data:
+    X_player = 0
+    Y_player = 0
+    seconds = 0
+    start_time = time.time()
 
-    def add_bullet(self, x, y):
-        if len(self.bullets) < 8:
-            self.bullets.append({"x": x, "y": y})
-
-class NetworkManager:
-    def __init__(self, game_data):
-        self.game_data = game_data
-        self.client_port = find_available_port()
-        self.sock = socket(family=AF_INET, type=SOCK_DGRAM)
-        self.sock.bind(('127.0.0.1', self.client_port))
-        self.sock.settimeout(0.01)  # Таймаут для предотвращения блокировки
-        print(f"Network started on port {self.client_port}")
-
-    def send_data(self):
-        bullets_x = [b['x'] for b in self.game_data.bullets[:8]]
-        bullets_x += [0.0] * (8 - len(bullets_x))
-
-        data_to_send = [
-            float(self.game_data.player_x),
-            float(self.game_data.player_y),
-            *bullets_x
-        ]
-
-        try:
-            data = struct.pack('10d', *data_to_send)
-            self.sock.sendto(data, serv)
-        except struct.error as e:
-            print(f"Packing error: {e}")
-
-    def receive_data(self):
-        try:
-            data, _ = self.sock.recvfrom(1024)
-            if len(data) != 80:  # 10 double × 8 bytes
-                print(f"Invalid data size: {len(data)} bytes")
-                return [0.0] * 10
-            return struct.unpack('10d', data)
-        except (BlockingIOError, timeout):
-            return [0.0] * 10
-        except struct.error as e:
-            print(f"Unpack error: {e}")
-            return [0.0] * 10
-        except OSError as e:
-            print(f"Network error: {e}")
-            return [0.0] * 10
-
-def game_loop(game_data, net_manager):
+class game_loop():
     pygame.init()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen = pygame.display.set_mode(SCREEN_SIZE)
     clock = pygame.time.Clock()
-    running = True
+    X_player = 0
+    Y_player = 0
+    game = GameClient()
 
-    while running:
+
+
+
+
+    while game.running:
+        # Обработка событий
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
+                game.running = False
 
+        # Управление
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]: game_data.player_y -= PLAYER_SPEED
-        if keys[pygame.K_s]: game_data.player_y += PLAYER_SPEED
-        if keys[pygame.K_a]: game_data.player_x -= PLAYER_SPEED
-        if keys[pygame.K_d]: game_data.player_x += PLAYER_SPEED
+        if keys[pygame.K_w]: game.player['y'] -= PLAYER_SPEED
+        if keys[pygame.K_s]: game.player['y'] += PLAYER_SPEED
+        if keys[pygame.K_a]: game.player['x'] -= PLAYER_SPEED
+        if keys[pygame.K_d]: game.player['x'] += PLAYER_SPEED
 
         if keys[pygame.K_SPACE]:
-            game_data.add_bullet(game_data.player_x, game_data.player_y)
+            game.bullets.append({
+                "x": game.player['x'],
+                "y": game.player['y']
+            })
 
         # Обновление пуль
-        game_data.bullets = [b for b in game_data.bullets if b['y'] > 0]
-        for bullet in game_data.bullets:
+        game.bullets = [b for b in game.bullets if b['y'] > 0]
+        for bullet in game.bullets:
             bullet['y'] -= BULLET_SPEED
 
-        # Сетевое взаимодействие
-        net_manager.send_data()
-        received = net_manager.receive_data()
-
         # Отрисовка
-        screen.fill((0, 0, 0))
-
-        # Игрок
-        pygame.draw.circle(screen, (0, 255, 0),
-            (int(game_data.player_x), int(game_data.player_y)), 15)
-
-        # Пули
-        for bullet in game_data.bullets:
-            pygame.draw.rect(screen, (255, 0, 0),
+        screen.fill((0,0,0))
+        pygame.draw.circle(screen, (0,255,0),
+            (game.player['x'], game.player['y']), 15)
+        for bullet in game.bullets:
+            pygame.draw.rect(screen, (255,0,0),
                 (bullet['x'], bullet['y'], 5, 10))
-
-        # Враги (первые 2 значения - координаты другого игрока)
-        if received[0] != 0.0 or received[1] != 0.0:
-            pygame.draw.rect(screen, (0, 0, 255),
-                (received[0], received[1], 30, 30))
 
         pygame.display.flip()
         clock.tick(30)
+        @staticmethod
+        def return_values(send_array):
+            game = GameClient()
+            send_array [1] = game.player['x']
+            send_array [2] = game.player['y']
+
+
+
+
+
+
+
+
+
+
+
+
 
     pygame.quit()
+class DataTransforms:
+    @staticmethod
+    def update_time(send_array):
+        Data.seconds = int(time.time() - Data.start_time)
+        send_array[3] = Data.seconds
+        return send_array
+
+class Client:
+    def __init__(self):
+        self.sock = socket(AF_INET, SOCK_DGRAM)
+        self.sock.bind(('127.0.0.1', 6502))
+        self.sock.setsockopt(SOL_SOCKET, SO_RCVBUF, 65536)  # Увеличиваем буфер
+        self.sock.settimeout(2)
+
+    def send_data(self, array):
+        try:
+            packed_data = struct.pack('10d', *array)  # Явная упаковка 10 значений
+            self.sock.sendto(packed_data, server_address_port)
+        except error as e:
+            print(f"Ошибка отправки: {e}")
+
+    def get_data(self):
+        try:
+            # Максимальный размер UDP-пакета 65507 байт
+            data, _ = self.sock.recvfrom(65507)
+
+            if len(data) != 800:
+                print(f"Неверный размер пакета: {len(data)} байт вместо 80")
+                return None
+
+            return struct.unpack('100d', data)
+        except timeout:
+            print("Таймаут ожидания данных")
+            return None
+        except error as e:
+            print(f"Ошибка получения: {e}")
+            return None
 
 if __name__ == '__main__':
-    game_data = GameData()
-    net_manager = NetworkManager(game_data)
+    try:
+        client = Client()
+        send_array = [0.0 for _ in range(10)]  # Гарантируем 10 float элементов
 
-    game_thread = threading.Thread(
-        target=game_loop,
-        args=(game_data, net_manager)
-    )
-    game_thread.start()
-    game_thread.join()
+        while True:
+            get_array = client.get_data()
+            if not get_array:
+                continue
+
+            send_array = DataTransforms.update_time(send_array)
+            send_array = game_loop.return_values(send_array)
+
+            client.send_data(send_array)
+            time.sleep(1)
+
+    except KeyboardInterrupt:
+        print("Программа завершена пользователем.")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+    finally:
+        client.sock.close()

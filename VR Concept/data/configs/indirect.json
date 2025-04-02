@@ -1,0 +1,28 @@
+{
+  "component name": "indirect",
+  "component type": "GLOBAL",
+  "growth": "PER_INSTANCE",
+  "members": [
+    [
+      "count",
+      "shr_uint"
+    ],
+    [
+      "instanceCount",
+      "shr_uint"
+    ],
+    [
+      "firstIndex",
+      "shr_uint"
+    ],
+    [
+      "baseVertex",
+      "shr_uint"
+    ],
+    [
+      "baseInstance",
+      "shr_uint"
+    ]
+  ],
+  "type": "BufferArgument"
+} 

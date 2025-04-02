@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<create object="UiFrame3D" tag="VirtualMenu" attachment="VR_CENTER" z="-0.3"/>
+
+<create object="UiFrame3D" tag="AngularVelocity" attachment="VISOR" z="-0.5" x="-0.35" y="-0.25"/>
+<create object="UiFrame3D" tag="Fuel" attachment="VISOR" z="-0.5" x="0.35" y="-0.25"/>
+<create object="UiFrame3D" tag="MotionControl" attachment="VISOR" z="-0.5"  y="-0.25"/>
+
+<UiFrame3D tag="AngularVelocity" frame="MOVABLE CAPTION HIDE_BUTTON" width="0.6" height="0.27" caption="Angular Velocity" show="HIDDEN" scale="0.35">
+
+	<origin from="CENTER"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.01" y="0.1" caption="Vx="/>
+	<UiLabel tag="Vx" width="0.3" height="0.08" x="0.12" y="0.1" justification="RIGHT"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.01" y="0.05" caption="Vy="/>
+	<UiLabel tag="Vy" width="0.3" height="0.08" x="0.12" y="0.05" justification="RIGHT"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.01" caption="Vz="/>
+	<UiLabel tag="Vz" width="0.3" height="0.08" x="0.12" justification="RIGHT"/>
+
+	<handler event="HIDE_REQUEST" plugin="FreeFlightModule" action="CloseAngularVelocity"/>
+
+</UiFrame3D>
+
+<UiFrame3D tag="Fuel" frame="MOVABLE CAPTION HIDE_BUTTON" width="0.5" height="0.17" caption="Fuel" show="HIDDEN" scale="0.35">
+
+	<origin from="CENTER"/>
+	
+	<appearance>
+	<color name="WINDOW_CAPTION_COLOR" red="0.75" green="0" blue="0" alpha="0.85"/>
+	<color name="WINDOW_HIGHLIGHTED_CAPTION_COLOR" red="1" green="0" blue="0" alpha="0.85"/>
+	</appearance>
+
+	<UiLabel width="0.05" height="0.08" x="0.01" caption="Fuel="/>
+	<UiLabel tag="Fuel" width="0.3" height="0.08" x="0.12" justification="RIGHT"/>
+
+	<handler event="HIDE_REQUEST" plugin="FreeFlightModule" action="CloseFuel"/>
+
+</UiFrame3D>
+
+<UiFrame3D tag="MotionControl" frame="MOVABLE CAPTION HIDE_BUTTON" width="1.3" height="0.31" caption="Motion Control" show="HIDDEN" scale="0.35">
+
+	<origin from="CENTER"/>
+
+	<UiLabel tag="Mode" width="0.15" height="0.08" x="0.01" y="0.07" caption="Mode"/>
+
+	<UiLabel tag="Left" width="0.15" height="0.08" x="0.3" y="0.07" caption="Left" justification="CENTER"/>
+	<UiLabel tag="Right" width="0.15" height="0.08" x="0.8" y="0.07" caption="Right" justification="CENTER"/>
+
+	<UiLabel tag="Forward" width="0.3" height="0.08" x="0.475" y="0.12" caption="Forward" justification="CENTER"/>
+	<UiLabel tag="Backward" width="0.3" height="0.08" x="0.475" y="0.02" caption="Backward" justification="CENTER"/>
+
+	<UiLabel tag="Up" width="0.25" height="0.08" x="1.0" y="0.12" caption="Up" justification="CENTER"/>
+	<UiLabel tag="Down" width="0.25" height="0.08" x="1.0" y="0.02" caption="Down" justification="CENTER"/>
+
+	<handler event="HIDE_REQUEST" plugin="FreeFlightModule" action="CloseMotionControl"/>
+
+</UiFrame3D>
+
+<UiFrame3D tag="VirtualMenu" frame="THICK CAPTION MOVABLE HIDE_BUTTON" caption="VR Concept"
+	show="HIDDEN AUTO_FIT" auto_fit_tag="Root" scale="0.5">
+
+	<origin from="LEFT_TOP" x="0.1" y="-0.1"/>
+
+	<UiMenu tag="Root" behavior="EMBEDDED AUTO_HIDE_NESTED_AT_ONES" show="NO_FRAME">
+
+		<item caption="Angular Velocity" icon="1">
+			<handler event="UPDATE" plugin="FreeFlightModule" action="ToggleAngularVelocity_Update"/>
+			<handler event="ITEM_SELECT" plugin="FreeFlightModule" action="ToggleAngularVelocity"/>
+		</item>
+
+		<item caption="Fuel" icon="1">
+			<handler event="UPDATE" plugin="FreeFlightModule" action="ToggleFuel_Update"/>
+			<handler event="ITEM_SELECT" plugin="FreeFlightModule" action="ToggleFuel"/>
+		</item>
+
+		<item caption="Motion Control" icon="1">
+			<handler event="UPDATE" plugin="FreeFlightModule" action="ToggleMotionControl_Update"/>
+			<handler event="ITEM_SELECT" plugin="FreeFlightModule" action="ToggleMotionControl"/>
+		</item>
+
+		<separator/>
+
+		<item caption="Exit" exit="1"/>
+
+	</UiMenu>
+
+	<handler event="HIDE_REQUEST" plugin="HumanInput" action="CloseVirtualMenu"/>
+
+</UiFrame3D>
+
+</ui>

@@ -1,0 +1,15 @@
+{
+  "component name": "index_buffer",
+  "component type": "GLOBAL",
+  "growth": "STATIC",
+  "direction": "In",
+  "members": [
+    [
+      "index",
+      "shr_uint",
+      "1"
+    ]
+  ],
+  "type": "BufferArgument"
+}
+

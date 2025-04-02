@@ -1,0 +1,71 @@
+{
+  "component name": "MeshShaderPipeline",
+  "textures": [
+    {
+      "name": "specular",
+      "shaders": ["PIXEL"],
+      "direction": "In"
+    },
+    {
+      "name": "diffuse",
+      "shaders": ["PIXEL"],
+      "direction": "In"
+    }
+  ],
+  "shaders": [
+    "amplification shader",
+    "mesh shader",
+    "default frag"
+  ],
+  "buffers": [
+    {
+      "name": "frustum",
+      "shaders": [
+        "AMPLIFICATION"
+      ]
+    },
+    {
+      "name": "meshlets",
+      "shaders": [
+        "AMPLIFICATION"
+      ]
+    },
+    {
+      "name": "culling",
+      "shaders": [
+        "AMPLIFICATION"
+      ]
+    },
+    {
+      "name": "vertex_buffer",
+      "shaders": [
+        "MESH"
+      ]
+    },
+    {
+      "name": "index_buffer",
+      "shaders": [
+        "MESH"
+      ]
+    },
+    {
+      "name": "camera",
+      "shaders": ["MESH", "PIXEL"]
+    },
+    {
+      "name": "object",
+      "shaders": ["MESH"]
+    },
+    {
+      "name": "ambient_light",
+      "shaders": ["PIXEL"]
+    },
+    {
+      "name": "ds_material",
+      "shaders": [
+        "PIXEL"
+      ]
+    }
+  ],
+  "type": "Pipeline"
+}

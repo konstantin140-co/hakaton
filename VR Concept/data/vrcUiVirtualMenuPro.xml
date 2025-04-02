@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<UiFrame3D tag="VirtualMenu" frame="THICK CAPTION MOVABLE HIDE_BUTTON" caption="VR Concept"
+	show="HIDDEN AUTO_FIT" auto_fit_tag="Root" scale="0.5">
+
+	<origin from="LEFT_TOP" x="0.1" y="-0.1"/>
+
+	<map_string source="NO_INTERACTION" target="No Interaction"/>
+	<map_string source="DRAG_OBJECTS" target="Drag Objects"/>
+	<map_string source="AXIS_ROTATION_ONLY" target="Axis Rotation Only"/>
+	<map_string source="HIDE_OBJECTS" target="Hide Objects"/>
+	<map_string source="ASSEMBLY_ANIMATION" target="Assembly Animation"/>
+	<map_string source="SHOW_OBJECT_INFO" target="Show Object Information"/>
+
+	<map_string source="RED" target="Red"/>
+	<map_string source="GREEN" target="Green"/>
+	<map_string source="BLUE" target="Blue"/>
+	<map_string source="YELLOW" target="Yellow"/>
+	<map_string source="WHITE" target="White"/>
+
+	<UiMenu tag="Root" behavior="EMBEDDED AUTO_HIDE_NESTED_AT_ONES" show="NO_FRAME">
+
+		<UiMenu tag="Scene">
+
+			<item caption="Unselect All">
+				<handler event="ITEM_SELECT" plugin="SceneInteractor" action="UnselectAll"/>
+			</item>
+
+			<separator/>
+
+		</UiMenu>
+
+		<UiMenu tag="Movement">
+
+			<UiMenu tag="TeleportMarkSetup">
+				<item id="1" caption="Jump"/>
+				<item id="2" caption="Update"/>
+				<item id="3" caption="Remove"/>
+			</UiMenu>
+
+			<item caption="Walk" icon="1">
+				<handler event="UPDATE" plugin="FreeCenterMover" action="FloorMovement_Update" param="0"/>
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="FloorMovement" param="0"/>
+			</item>
+
+			<item caption="Fly" icon="1">
+				<handler event="UPDATE" plugin="FreeCenterMover" action="FloorMovement_Update" param="1"/>
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="FloorMovement" param="1"/>
+			</item>
+
+			<separator/>
+
+			<item caption="Move Axis Center" exit="1">
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="MoveAxisCenter"/>
+			</item>
+
+			<item caption="Reset Axis Center" exit="1">
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="ResetAxisCenter"/>
+			</item>
+
+			<separator/>
+
+			<item caption="Reset Position" exit="1">
+				<handler event="ITEM_SELECT" plugin="HumanInput" action="ResetPosition"/>
+			</item>
+
+			<item caption="Add Teleport Mark" exit="1">
+				<handler event="ITEM_SELECT" plugin="TeleportMarks" action="AddTeleportMark"/>
+			</item>
+
+			<separator/>
+
+			<item tag="TeleportMarkSetup" caption="Teleport Mark #{}"/>
+
+		</UiMenu>
+
+		<UiMenu tag="Notes">
+		
+			<UiMenu tag="NoteMarkSetup">
+				<item id="1" caption="Jump"/>
+				<item id="2" caption="Rename"/>
+				<item id="3" caption="Show/Hide"/>
+				<item id="4" caption="Remove"/>
+			</UiMenu>
+		
+			<item caption="Add Note" exit="1">
+				<handler event="ITEM_SELECT" plugin="SceneInteractor" action="AddNote"/>
+			</item>
+			
+			<separator/>
+			
+			<item tag="NoteMarkSetup" caption="Note Mark #{}"/>
+		
+		</UiMenu>
+		
+		<UiMenu tag="Clip">
+
+			<UiMenu tag="PlaneSetup">
+				<item id="1" caption="Reposition"/>
+				<item id="2" caption="Flip" icon="1"/>
+				<item id="3" caption="Remove"/>
+			</UiMenu>
+
+			<item caption="Create New Plane" exit="1">
+				<handler event="ITEM_SELECT" plugin="Clipper" action="CreateNewPlane"/>
+			</item>
+
+			<item caption="Remove All Planes" exit="1">
+				<handler event="ITEM_SELECT" plugin="Clipper" action="RemoveAllPlanes"/>
+			</item>
+
+			<separator/>
+
+			<item tag="PlaneSetup" caption="Setup Plane #{}"/>
+
+		</UiMenu>
+
+		<UiMenu tag="RangeMeter">
+
+			<UiMenu tag="MeasuringMode">
+				<item caption="Measuring Disabled" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="0"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="0"/>
+				</item>
+				<item caption="Distance Between 2-Points" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="1"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="1"/>
+				</item>
+				<item caption="Circle Diameter" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="2"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="2"/>
+				</item>
+				<item caption="Height" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="3"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="3"/>
+				</item>
+				<item caption="Perpendicular Distance" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="4"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="4"/>
+				</item>
+			</UiMenu>
+
+			<UiMenu tag="RulerSetup">
+				<item id="1" caption="Remeasure"/>
+				<item id="2" caption="Remove"/>
+			</UiMenu>
+
+			<item submenu_tag="MeasuringMode" caption="Measuring Mode"/>
+	
+			<!--<item caption="Measuring Mode" exit="1">
+				<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update"/>
+				<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode"/>
+			</item>-->
+
+			<item caption="Remove All Rulers" exit="1">
+				<handler event="ITEM_SELECT" plugin="RangeMeter" action="RemoveAllRulers"/>
+			</item>
+
+			<separator/>
+
+			<item tag="RulerSetup" caption="|Ruler #{}|Diameter #{}|Height #{}|Perpendicular #{}"/>
+
+		</UiMenu>
+
+		<UiMenu tag="PaintingTool">
+
+			<UiMenu tag="DrawingColor">
+			</UiMenu>
+
+			<item caption="Drawing Mode" exit="1">
+				<handler event="UPDATE" plugin="PaintingTool" action="ToggleStrokeDrawingMode_Update"/>
+				<handler event="ITEM_SELECT" plugin="PaintingTool" action="ToggleStrokeDrawingMode"/>
+			</item>
+
+			<item caption="Remove All Strokes" exit="1">
+				<handler event="ITEM_SELECT" plugin="PaintingTool" action="RemoveAllStrokes"/>
+			</item>
+
+			<item submenu_tag="DrawingColor" caption="Drawing Color">
+				<handler event="MENU_SETUP" plugin="PaintingTool" action="DrawingColorMenuSetup"/>
+			</item>
+
+		</UiMenu>
+
+		<item submenu_tag="Scene" caption="Scene Management">
+			<handler event="MENU_SETUP" plugin="SceneInteractor" action="SceneInteractorMenuSetup"/>
+		</item>
+
+		<item submenu_tag="Movement" caption="Movement">
+			<handler event="MENU_SETUP" plugin="TeleportMarks" action="MovementMenuSetup"/>
+		</item>
+		
+		<item submenu_tag="Notes" caption="Notes">
+			<handler event="MENU_SETUP" plugin="SceneInteractor" action="NotesMenuSetup"/>
+		</item>
+
+		<item submenu_tag="Clip" caption="Clipping Setup">
+			<handler event="MENU_SETUP" plugin="Clipper" action="ClipperMenuSetup"/>
+		</item>
+
+		<item submenu_tag="RangeMeter" caption="Measurings">
+			<handler event="MENU_SETUP" plugin="RangeMeter" action="RangeMeterMenuSetup"/>
+		</item>
+
+		<item submenu_tag="PaintingTool" caption="Paintings"/>
+
+		<item caption="Reset Transforms">
+			<handler event="ITEM_SELECT" plugin="SceneInteractor" action="ResetTransforms"/>
+		</item>
+		
+		<separator/>
+
+		<!--<item caption="Show Collisions" icon="1">
+			<handler event="UPDATE" plugin="SceneInteractor" action="ShowCollisions_Update"/>
+			<handler event="ITEM_SELECT" plugin="SceneInteractor" action="ShowCollisions"/>
+		</item>-->
+
+		<item caption="Scene Tree View" icon="1">
+			<handler event="UPDATE" plugin="SceneTreeView" action="ToggleSceneTreeView_Update"/>
+			<handler event="ITEM_SELECT" plugin="SceneTreeView" action="ToggleSceneTreeView"/>
+		</item>
+
+		<!--<item caption="Hand Position" icon="1">
+			<handler event="UPDATE" plugin="HumanInput" action="ToggleHandPosition_Update"/>
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="ToggleHandPosition"/>
+		</item>-->
+        
+		<item caption="Assembly Animation" icon="1">
+			<handler event="UPDATE" plugin="SceneInteractor" action="ToggleAssemblyAnimation_Update"/>
+			<handler event="ITEM_SELECT" plugin="SceneInteractor" action="ToggleAssemblyAnimation"/>
+		</item>
+		
+		<item caption="Show Keyboard" icon="1" exit="1">
+			<handler event="UPDATE" plugin="HumanInput" action="ToggleKeyboard_Update"/>
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="ToggleKeyboard"/>
+		</item>
+		
+		<item caption="Show Object Library" icon="1" exit="1">
+			<handler event="UPDATE" plugin="ObjectLibraryView" action="ShowObjectLibrary_Update"/>
+			<handler event="ITEM_SELECT" plugin="ObjectLibraryView" action="ShowObjectLibrary"/>
+		</item>
+        
+		<item caption="Show Instruments" icon="1" exit="1">
+			<handler event="UPDATE" plugin="InstrumentsView" action="ShowInstruments_Update"/>
+			<handler event="ITEM_SELECT" plugin="InstrumentsView" action="ShowInstruments"/>
+		</item>
+		
+		<separator/>
+
+		<item caption="Take Screenshot" exit="1">
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="TakeScreenshot"/>
+		</item>
+
+		<separator/>
+
+		<item caption="Exit" exit="1"/>
+
+	</UiMenu>
+
+	<handler event="HIDE_REQUEST" plugin="HumanInput" action="CloseVirtualMenu"/>
+
+</UiFrame3D>
+
+</ui>

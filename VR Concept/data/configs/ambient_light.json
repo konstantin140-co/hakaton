@@ -1,0 +1,17 @@
+{
+    "component name": "ambient_light",
+    "component type": "CONSTANT",
+    "growth": "STATIC",
+    "members": [
+        [
+            "color",
+            "shr_vec4"
+        ],
+        [
+            "direction",
+            "shr_vec4"
+        ]
+    ],
+    "type": "BufferArgument"
+}  
+ 

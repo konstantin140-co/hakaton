@@ -1,0 +1,21 @@
+ {
+   "component name": "culling",
+   "component type": "GLOBAL",
+   "growth": "PER_INSTANCE",
+   "direction": "In",
+   "members": [
+     [
+       "box_min_point",
+       "shr_vec4"
+     ],
+     [
+       "box_max_point",
+       "shr_vec4"
+     ],
+     [
+       "sphere_pos",
+       "shr_vec4"
+     ]
+   ],
+  "type": "BufferArgument"
+} 

@@ -1,0 +1,12 @@
+{
+  "component name": "object",
+  "component type": "CONSTANT",
+  "growth": "PER_INSTANCE",
+  "members": [
+    [
+      "model",
+      "shr_mat4"
+    ]
+  ],
+  "type": "BufferArgument"
+} 

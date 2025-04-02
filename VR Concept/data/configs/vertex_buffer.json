@@ -1,0 +1,24 @@
+{
+  "component name": "vertex_buffer",
+  "component type": "GLOBAL",
+  "growth": "STATIC",
+  "direction": "In",
+  "members": [
+    [
+      "pos",
+      "shr_vec3",
+      "1"
+    ],
+    [
+      "norm",
+      "shr_uvec3",
+      "1"
+    ],
+    [
+      "uv",
+      "shr_uvec2",
+      "1"
+    ]
+  ],
+  "type": "BufferArgument"
+}

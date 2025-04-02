@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<UiFrame3D tag="RenameWindow" frame="THICK CAPTION MOVABLE RESIZABLE"
+	width="1.0" height="0.4" min_frame_width="0.5" min_frame_height="0.2" caption="Окно переименования" show="HIDDEN CLIP_CHILDREN" scale="0.6">
+	
+	<origin from="CENTER"/>
+	
+	<UiEdit width="0.5" height="0.1" caption="">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.03"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.05"/>
+	</UiEdit>
+	
+	<UiButton width="0.2" height="0.06" caption="Ок" justification="CENTER">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.22"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.20"/>
+        <handler event="PRESS" plugin="SceneInteractor" action="RenameOk"/>
+    </UiButton>
+
+    <UiButton width="0.2" height="0.06" caption="Отмена" justification="CENTER">
+        <align ref_line="RIGHT" with="PARENT:LEFT:0.22"/>
+        <align ref_line="TOP" with="PARENT:TOP:-0.20"/>
+        <handler event="PRESS" plugin="SceneInteractor" action="RenameCancel"/>
+    </UiButton>
+
+</UiFrame3D>
+
+</ui>

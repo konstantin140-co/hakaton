@@ -1,0 +1,24 @@
+{
+  "component name": "frustum",
+  "component type": "CONSTANT",
+  "growth": "STATIC",
+  "direction": "In",
+  "members": [
+    [
+      "planes",
+      "shr_vec4",
+      "6"
+    ],
+    [
+      "nearPointMasks",
+      "shr_uvec4",
+      "2"
+    ],
+    [
+      "camera_pos",
+      "shr_uvec4"
+    ]
+  ],
+  "type": "BufferArgument"
+}
+

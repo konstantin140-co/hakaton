@@ -1,0 +1,7 @@
+{
+  "component name": "colour",
+  "semantic" : "SV_TARGET",
+  "component type": "shr_vec4",
+  "type": "VertexArgument"
+} 
+ 

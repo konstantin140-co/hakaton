@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<UiFrame3D tag="VirtualMenu" frame="THICK CAPTION MOVABLE HIDE_BUTTON" caption="VR Concept"
+	show="HIDDEN AUTO_FIT" auto_fit_tag="Root" scale="0.5">
+
+	<origin from="LEFT_TOP" x="0.1" y="-0.1"/>
+
+	<map_string source="NO_INTERACTION" target="Нет взаимодействия"/>
+	<map_string source="DRAG_OBJECTS" target="Перетаскивать объекты"/>
+	<map_string source="AXIS_ROTATION_ONLY" target="Только вращение вокруг оси"/>
+	<map_string source="HIDE_OBJECTS" target="Скрывать объекты"/>
+	<map_string source="ASSEMBLY_ANIMATION" target="Анимация сборки"/>
+	<map_string source="SHOW_OBJECT_INFO" target="Показывать информацию об объекте"/>
+
+	<map_string source="RED" target="Красный"/>
+	<map_string source="GREEN" target="Зелёный"/>
+	<map_string source="BLUE" target="Синий"/>
+	<map_string source="YELLOW" target="Жёлтый"/>
+	<map_string source="WHITE" target="Белый"/>
+
+	<UiMenu tag="Root" behavior="EMBEDDED AUTO_HIDE_NESTED_AT_ONES" show="NO_FRAME">
+
+		<UiMenu tag="Scene">
+
+			<item caption="Отменить выделение">
+				<handler event="ITEM_SELECT" plugin="SceneInteractor" action="UnselectAll"/>
+			</item>
+
+			<separator/>
+
+		</UiMenu>
+
+		<UiMenu tag="Movement">
+
+			<UiMenu tag="TeleportMarkSetup">
+				<item id="1" caption="Переместиться"/>
+				<item id="2" caption="Обновить"/>
+				<item id="3" caption="Удалить"/>
+			</UiMenu>
+
+			<item caption="Ходьба" icon="1">
+				<handler event="UPDATE" plugin="FreeCenterMover" action="FloorMovement_Update" param="0"/>
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="FloorMovement" param="0"/>
+			</item>
+
+			<item caption="Полёт" icon="1">
+				<handler event="UPDATE" plugin="FreeCenterMover" action="FloorMovement_Update" param="1"/>
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="FloorMovement" param="1"/>
+			</item>
+
+			<separator/>
+
+			<item caption="Переместить центр оси" exit="1">
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="MoveAxisCenter"/>
+			</item>
+
+			<item caption="Сброс центра оси" exit="1">
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="ResetAxisCenter"/>
+			</item>
+
+			<separator/>
+
+			<item caption="Сброс положения" exit="1">
+				<handler event="ITEM_SELECT" plugin="HumanInput" action="ResetPosition"/>
+			</item>
+
+			<item caption="Добавить закладку" exit="1">
+				<handler event="ITEM_SELECT" plugin="TeleportMarks" action="AddTeleportMark"/>
+			</item>
+
+			<separator/>
+
+			<item tag="TeleportMarkSetup" caption="Закладка #{}"/>
+
+		</UiMenu>
+		
+		<UiMenu tag="Notes">
+		
+			<UiMenu tag="NoteMarkSetup">
+				<item id="1" caption="Переместиться"/>
+				<item id="2" caption="Переименовать"/>
+				<item id="3" caption="Показать/Скрыть"/>
+				<item id="4" caption="Удалить"/>
+			</UiMenu>
+		
+			<item caption="Добавить заметку" exit="1">
+				<handler event="ITEM_SELECT" plugin="SceneInteractor" action="AddNote"/>
+			</item>
+			
+			<separator/>
+			
+			<item tag="NoteMarkSetup" caption="Заметка #{}"/>
+		
+		</UiMenu>
+
+		<UiMenu tag="Clip">
+
+			<UiMenu tag="PlaneSetup">
+				<item id="1" caption="Переместить"/>
+				<item id="2" caption="Перевернуть" icon="1"/>
+				<item id="3" caption="Удалить"/>
+			</UiMenu>
+
+			<item caption="Добавить плоскость" exit="1">
+				<handler event="ITEM_SELECT" plugin="Clipper" action="CreateNewPlane"/>
+			</item>
+
+			<item caption="Удалить все плоскости" exit="1">
+				<handler event="ITEM_SELECT" plugin="Clipper" action="RemoveAllPlanes"/>
+			</item>
+
+			<separator/>
+
+			<item tag="PlaneSetup" caption="Плоскость #{}"/>
+
+		</UiMenu>
+
+		<UiMenu tag="RangeMeter">
+
+			<UiMenu tag="MeasuringMode">
+				<item caption="Режим измерения отключен" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="0"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="0"/>
+				</item>
+				<item caption="Расстояние между 2 точками" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="1"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="1"/>
+				</item>
+				<item caption="Диаметер окружности" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="2"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="2"/>
+				</item>
+				<item caption="Высота" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="3"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="3"/>
+				</item>
+				<item caption="Расстояние по перпендикуляру" exit="1">
+					<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update" param="4"/>
+					<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode" param="4"/>
+				</item>
+			</UiMenu>
+
+			<UiMenu tag="RulerSetup">
+				<item id="1" caption="Измерить заново"/>
+				<item id="2" caption="Удалить"/>
+			</UiMenu>
+
+			<item submenu_tag="MeasuringMode" caption="Режим измерения"/>
+
+			<!--<item caption="Режим измерения" exit="1">
+				<handler event="UPDATE" plugin="RangeMeter" action="ToggleMeasuringMode_Update"/>
+				<handler event="ITEM_SELECT" plugin="RangeMeter" action="ToggleMeasuringMode"/>
+			</item>-->
+
+			<item caption="Удалить все линейки" exit="1">
+				<handler event="ITEM_SELECT" plugin="RangeMeter" action="RemoveAllRulers"/>
+			</item>
+
+			<separator/>
+
+			<item tag="RulerSetup" caption="|Линейка #{}|Диаметр #{}|Высота #{}|Перпендикуляр #{}"/>
+
+		</UiMenu>
+
+		<UiMenu tag="PaintingTool">
+
+			<UiMenu tag="DrawingColor">
+			</UiMenu>
+
+			<item caption="Режим рисования" exit="1">
+				<handler event="UPDATE" plugin="PaintingTool" action="ToggleStrokeDrawingMode_Update"/>
+				<handler event="ITEM_SELECT" plugin="PaintingTool" action="ToggleStrokeDrawingMode"/>
+			</item>
+
+			<item caption="Удалить все рисунки" exit="1">
+				<handler event="ITEM_SELECT" plugin="PaintingTool" action="RemoveAllStrokes"/>
+			</item>
+
+			<item submenu_tag="DrawingColor" caption="Цвет рисования">
+				<handler event="MENU_SETUP" plugin="PaintingTool" action="DrawingColorMenuSetup"/>
+			</item>
+
+		</UiMenu>
+
+		<item submenu_tag="Scene" caption="Управление сценой">
+			<handler event="MENU_SETUP" plugin="SceneInteractor" action="SceneInteractorMenuSetup"/>
+		</item>
+
+		<item submenu_tag="Movement" caption="Перемещение">
+			<handler event="MENU_SETUP" plugin="TeleportMarks" action="MovementMenuSetup"/>
+		</item>
+        
+		<item submenu_tag="Notes" caption="Заметки">
+			<handler event="MENU_SETUP" plugin="SceneInteractor" action="NotesMenuSetup"/>
+		</item>
+
+		<item submenu_tag="Clip" caption="Настройка сечений">
+			<handler event="MENU_SETUP" plugin="Clipper" action="ClipperMenuSetup"/>
+		</item>
+
+		<item submenu_tag="RangeMeter" caption="Измерения">
+			<handler event="MENU_SETUP" plugin="RangeMeter" action="RangeMeterMenuSetup"/>
+		</item>
+
+		<item submenu_tag="PaintingTool" caption="Рисование"/>
+
+		<item caption="Сброс перемещений">
+			<handler event="ITEM_SELECT" plugin="SceneInteractor" action="ResetTransforms"/>
+		</item>
+		
+		<separator/>
+
+		<item caption="Окно дерева сцены" icon="1">
+			<handler event="UPDATE" plugin="SceneTreeView" action="ToggleSceneTreeView_Update"/>
+			<handler event="ITEM_SELECT" plugin="SceneTreeView" action="ToggleSceneTreeView"/>
+		</item>
+
+		<!--<item caption="Окно положения руки" icon="1">
+			<handler event="UPDATE" plugin="HumanInput" action="ToggleHandPosition_Update"/>
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="ToggleHandPosition"/>
+		</item>-->
+		
+		<item caption="Сборочная анимация" icon="1">
+			<handler event="UPDATE" plugin="SceneInteractor" action="ToggleAssemblyAnimation_Update"/>
+			<handler event="ITEM_SELECT" plugin="SceneInteractor" action="ToggleAssemblyAnimation"/>
+		</item>
+		
+		<item caption="Показать клавиатуру" icon="1" exit="1">
+			<handler event="UPDATE" plugin="HumanInput" action="ToggleKeyboard_Update"/>
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="ToggleKeyboard"/>
+		</item>
+		
+		<item caption="Показать библиотеку объектов" icon="1" exit="1">
+			<handler event="UPDATE" plugin="ObjectLibraryView" action="ShowObjectLibrary_Update"/>
+			<handler event="ITEM_SELECT" plugin="ObjectLibraryView" action="ShowObjectLibrary"/>
+		</item>
+        
+		<item caption="Показать инструменты" icon="1" exit="1">
+			<handler event="UPDATE" plugin="InstrumentsView" action="ShowInstruments_Update"/>
+			<handler event="ITEM_SELECT" plugin="InstrumentsView" action="ShowInstruments"/>
+		</item>
+		
+		<separator/>
+
+		<item caption="Сделать снимок экрана" exit="1">
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="TakeScreenshot"/>
+		</item>
+
+		<separator/>
+
+		<item caption="Выход" exit="1"/>
+
+	</UiMenu>
+
+	<handler event="HIDE_REQUEST" plugin="HumanInput" action="CloseVirtualMenu"/>
+
+</UiFrame3D>
+
+</ui>

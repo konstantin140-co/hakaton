@@ -1,0 +1,17 @@
+{
+  "component name": "default frag",
+  "component type": "PIXEL",
+  "path": "default_pixel",
+  "vertex": {
+    "inputs": [
+      "normal",
+      "frag_pos",
+		  "uv"
+    ],
+    "outputs": [
+      "colour"
+    ]
+  },
+  "type": "Shader"
+}
+ 

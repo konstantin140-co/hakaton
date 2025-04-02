@@ -1,0 +1,6 @@
+{
+  "component name": "mesh shader",
+  "component type": "MESH",
+  "path": "mesh shader",
+  "type": "Shader"
+}

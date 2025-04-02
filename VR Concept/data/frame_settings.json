@@ -1,0 +1,20 @@
+{
+	"cameras": [
+		{
+			"id": 0,
+			"type": "perspective",
+			"fov": 30.0,
+			"near": 0.1,
+			"far": 1000.0,
+			"viewport": {
+				"absolute": false,
+				"rect": [0, 0, 1.0, 1.0]
+			},
+			"offscreen": false,
+			"shader": {
+				"depth": "lequal",
+				"cull": "back"
+			}
+		}
+	]
+}

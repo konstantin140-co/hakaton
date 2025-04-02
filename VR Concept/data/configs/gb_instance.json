@@ -1,0 +1,13 @@
+{
+  "component name": "GBInstance",
+  "component type": "CONSTANT",
+  "growth": "PER_INSTANCE",
+  "members": [
+    [
+      "instance",
+      "shr_uvec4"
+    ]
+  ],
+  "type": "BufferArgument"
+} 
+

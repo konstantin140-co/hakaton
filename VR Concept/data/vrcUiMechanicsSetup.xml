@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<UiFrame3D tag="MechanicsSetup" frame="THICK CAPTION MOVABLE RESIZABLE HIDE_BUTTON" width="1.5" height="1.5"
+	min_frame_width="1" caption="Mechanics Setup" show="HIDDEN CLIP_CHILDREN" scale="0.5">
+
+	<origin from="CENTER"/>
+
+
+
+	<UiLabel id="1" width="0.3" height="0.08" caption="World Parameters:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.03"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="ERP:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:WorldERP:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="WorldERP" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.11"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="WorldERP" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:WorldERP:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="CFM:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:WorldCFM:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="WorldCFM" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.19"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="WorldCFM" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:WorldCFM:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Max Corr. Vel.:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:MaxCorrectingVel:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="MaxCorrectingVel" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.27"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="MaxCorrectingVel" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:MaxCorrectingVel:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Surf. Layer:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:SurfaceLayer:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="SurfaceLayer" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.35"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="SurfaceLayer" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:SurfaceLayer:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Lin. Damp. Thr.:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:LinearDampingThreshold:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="LinearDampingThreshold" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.43"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="LinearDampingThreshold" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:LinearDampingThreshold:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Ang. Damp. Thr.:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:AngularDampingThreshold:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="AngularDampingThreshold" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.51"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="AngularDampingThreshold" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:AngularDampingThreshold:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Lin. Damping:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:LinearDamping:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="LinearDamping" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.59"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="LinearDamping" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:LinearDamping:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Ang. Damping:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:AngularDamping:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="AngularDamping" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.67"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="AngularDamping" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:AngularDamping:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Max. Ang. Speed:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:MaxAngularSpeed:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="MaxAngularSpeed" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.75"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="MaxAngularSpeed" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:MaxAngularSpeed:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Bounce Parameters:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.83"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Mu:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceMu:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="BounceMu" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.91"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="BounceMu" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceMu:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Restitution:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceRestitution:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="BounceRestitution" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.99"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="BounceRestitution" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceRestitution:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Threshold:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceThreshold:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="BounceThreshold" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-1.07"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="BounceThreshold" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceThreshold:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="CFM:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceCFM:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="BounceCFM" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:TOP:-1.15"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="BounceCFM" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.23"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:BounceCFM:1"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Body Parameters:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="PARENT:TOP:-1.23"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.15" height="0.05" caption="Finite Rot. Mode:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP::FiniteRotationMode:1"/>
+	</UiLabel>
+
+	<UiButton id="1" tag="FiniteRotationMode" height="0.05" width="0.15" justification="CENTER">
+		<rounded_frame/>
+		<align ref_line="LEFT" with="PARENT:LEFT:0.47"/>
+		<align ref_line="TOP" with="PARENT:TOP:-1.31"/>
+		<handler event="UPDATE" plugin="MechanicsManager" action="FiniteRotationMode" action="Update"/>
+		<handler event="PRESS" plugin="MechanicsManager" action="FiniteRotationMode"/>
+	</UiButton>
+
+
+
+	<handler event="SCROLL" plugin="MechanicsManager" action="Scroll"/>
+	<handler event="HIDE_REQUEST" plugin="MechanicsManager" action="CloseMechanicsSetup"/>
+
+</UiFrame3D>
+
+</ui>

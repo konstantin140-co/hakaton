@@ -1,0 +1,6 @@
+{
+  "component name": "frag_pos",
+  "semantic" : "TEXCOORD1",
+  "component type": "shr_vec3",
+  "type": "VertexArgument"
+}

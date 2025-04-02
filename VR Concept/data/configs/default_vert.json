@@ -1,0 +1,18 @@
+{
+  "component name": "default vert",
+  "component type": "VERTEX",
+  "path": "default_vert",
+  "vertex": {
+    "inputs": [
+      "pos",
+      "normal",
+      "uv"
+    ],
+    "outputs": [
+      "normal",
+      "frag_pos",
+      "uv"
+    ]
+  },
+  "type": "Shader"
+}

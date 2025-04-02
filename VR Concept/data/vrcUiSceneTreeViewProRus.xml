@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<UiFrame3D tag="SceneTreeView" frame="THICK CAPTION MOVABLE RESIZABLE HIDE_BUTTON"
+	width="1.5" height="1" min_frame_width="1" min_frame_height="0.6" caption="Окно дерева сцены" show="HIDDEN CLIP_CHILDREN" scale="0.5">
+
+	<origin from="CENTER"/>
+
+	<UiLabel width="0.3" height="0.08" caption="Дерево сцены:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.02"/>
+	</UiLabel>
+
+	<UiListBox tag="SceneTree" list_style="SHOW_HEADER SHOW_HIERARCHY" grid_style="VERTICAL_GRID">
+
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.02"/>
+		<align ref_line="TOP" with="PARENT:TOP:-0.10"/>
+		<align ref_line="BOTTOM" with="PARENT:BOTTOM:0.2"/>
+	
+		<header>
+			<item text="Имя" width="0.8" justification="LEFT"/>
+			<item text="Тип" width="0.6" justification="RIGHT"/>
+			<item text="Плагин" width="0.8" justification="CENTER"/>
+			<item text="Файл" width="1.2" justification="LIFT"/>
+			<item text="Отсекать" width="0.2" justification="CENTER"/>
+			<item text="Показать" width="0.2" justification="CENTER"/>
+			<columns order="5 4 0 1 2 3"/>
+		</header>
+
+	</UiListBox>
+
+	<UiLabel width="0.3" height="0.08" caption="Скорость перемещения:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:WalkSpeed:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="WalkSpeed" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.45"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:BOTTOM:0.18"/>
+		<handler event="UPDATE" plugin="FreeCenterMover" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="WalkSpeed" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.21"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:WalkSpeed:1"/>
+		<handler event="UPDATE" plugin="FreeCenterMover" action="Update"/>
+	</UiLabel>
+
+
+
+	<UiLabel width="0.3" height="0.08" caption="Скорость вращения:">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:RotateSpeed:1"/>
+	</UiLabel>
+
+	<UiScrollBar id="1" tag="RotateSpeed" height="0.05" orientation="HORIZONTAL" scroll_length="105" page_length="5" show="AUTO_UPDATE">
+		<align ref_line="LEFT" with="PARENT:LEFT:0.45"/>
+		<align ref_line="RIGHT" with="PARENT:RIGHT:-0.25"/>
+		<align ref_line="TOP" with="PARENT:BOTTOM:0.10"/>
+		<handler event="UPDATE" plugin="FreeCenterMover" action="Update"/>
+	</UiScrollBar>
+
+	<UiLabel id="2" tag="RotateSpeed" width="0.15" height="0.08">
+		<align ref_line="LEFT" with="PARENT:RIGHT:-0.21"/>
+		<align ref_line="TOP" with="WIDGET:TOP:0.01:RotateSpeed:1"/>
+		<handler event="UPDATE" plugin="FreeCenterMover" action="Update"/>
+	</UiLabel>
+
+
+
+	<handler event="SCROLL" plugin="FreeCenterMover" action="Scroll"/>
+	<handler event="HIDE_REQUEST" plugin="SceneTreeView" action="CloseSceneTreeView"/>
+
+</UiFrame3D>
+
+<UiFrame3D tag="AssemblyAnimation" frame="MOVABLE CAPTION HIDE_BUTTON" width="0.98" height="0.31" caption="Сборочная анимация" show="HIDDEN" scale="0.5">
+
+	<origin from="LEFT_TOP"/>
+
+	<UiButton width="0.16" height="0.16" x="0.03" y="0.03">
+		<rounded_frame/>
+
+		<move_to x="0.04" y="0.02" />
+		<line_to x="0.04" y="0.14" />
+		<line_to x="0.06" y="0.14" />
+		<line_to x="0.06" y="0.02" />
+		<line_to x="0.04" y="0.02" />
+		<finish/>
+
+		<move_to x="0.06" y="0.08" />
+		<line_to x="0.12" y="0.02" />
+		<line_to x="0.12" y="0.14" />
+		<line_to x="0.06" y="0.08" />
+		<finish/>
+
+		<handler event="PRESS" plugin="SceneInteractor" action="ResetAssembly"/>
+	</UiButton>
+
+	<UiButton width="0.16" height="0.16" x="0.22" y="0.03">
+		<rounded_frame/>
+
+		<move_to x="0.03" y="0.08" />
+		<line_to x="0.09" y="0.02" />
+		<line_to x="0.09" y="0.14" />
+		<line_to x="0.03" y="0.08" />
+		<finish/>
+
+		<move_to x="0.11" y="0.02" />
+		<line_to x="0.11" y="0.14" />
+		<line_to x="0.13" y="0.14" />
+		<line_to x="0.13" y="0.02" />
+		<line_to x="0.11" y="0.02" />
+		<finish/>
+
+		<handler event="PRESS" plugin="SceneInteractor" action="StartAssemblyAnimationReversedStep"/>
+	</UiButton>
+
+	<UiButton width="0.16" height="0.16" x="0.41" y="0.03">
+		<rounded_frame/>
+
+		<move_to x="0.05" y="0.02" />
+		<line_to x="0.05" y="0.14" />
+		<line_to x="0.07" y="0.14" />
+		<line_to x="0.07" y="0.02" />
+		<line_to x="0.05" y="0.02" />
+		<finish/>
+
+		<move_to x="0.09" y="0.02" />
+		<line_to x="0.09" y="0.14" />
+		<line_to x="0.11" y="0.14" />
+		<line_to x="0.11" y="0.02" />
+		<line_to x="0.09" y="0.02" />
+		<finish/>
+
+		<handler event="PRESS" plugin="SceneInteractor" action="StopAssemblyAnimation"/>
+	</UiButton>
+
+	<UiButton width="0.16" height="0.16" x="0.60" y="0.03">
+		<rounded_frame/>
+
+		<move_to x="0.03" y="0.02" />
+		<line_to x="0.03" y="0.14" />
+		<line_to x="0.05" y="0.14" />
+		<line_to x="0.05" y="0.02" />
+		<line_to x="0.03" y="0.02" />
+		<finish/>
+
+		<move_to x="0.13" y="0.08" />
+		<line_to x="0.07" y="0.02" />
+		<line_to x="0.07" y="0.14" />
+		<line_to x="0.13" y="0.08" />
+		<finish/>
+
+		<handler event="PRESS" plugin="SceneInteractor" action="StartAssemblyAnimationStep"/>
+	</UiButton>
+
+	<UiButton width="0.16" height="0.16" x="0.79" y="0.03">
+		<rounded_frame/>
+
+		<move_to x="0.11" y="0.08" />
+		<line_to x="0.05" y="0.02" />
+		<line_to x="0.05" y="0.14" />
+		<line_to x="0.11" y="0.08" />
+		<finish/>
+
+		<handler event="PRESS" plugin="SceneInteractor" action="StartAssemblyAnimation"/>
+	</UiButton>
+
+	<handler event="HIDE_REQUEST" plugin="SceneInteractor" action="CloseAssemblyAnimation"/>
+
+</UiFrame3D>
+
+</ui>

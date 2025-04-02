@@ -1,0 +1,13 @@
+{
+  "component name": "ds_material",
+  "component type": "GLOBAL",
+  "growth": "PER_INSTANCE",
+  "members": [
+    [
+      "material",
+      "shr_vec4"
+    ]
+  ],
+  "type": "BufferArgument"
+} 
+

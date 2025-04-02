@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<appearance>
+	<float name="THIN_LINE_WIDTH" val="0.75"/>
+	<float name="LINE_WIDTH" val="1"/>
+	<float name="THICK_LINE_WIDTH" val="2"/>
+
+	<float name="ITEM_HEIGHT" val="0.07"/>
+	<float name="ITEM_ICON_MARGIN" val="0.06"/>
+	<float name="WINDOW_FRAME_WIDTH" val="0.01"/>
+	<float name="WINDOW_CAPTION_HEIGHT" val="0.09"/>
+	<float name="DEPTH_STEP" val="0.005"/>
+
+	<color name="NORMAL_COLOR" red="1" green="1" blue="1" alpha="1"/>
+	<color name="HIGHLIGHTED_COLOR" red="0" green="1" blue="0" alpha="1"/>
+	<color name="WINDOW_CANVAS_COLOR" red="0" green="0" blue="0" alpha="0.85"/>
+
+	<font name="NORMAL_FONT" file_name="vrcUiFont.ttf" size="0.05" thickness="1.5"/>
+	<font name="WINDOW_CAPTION_FONT" file_name="vrcUiFont.ttf" size="0.06" thickness="2"/>
+</appearance>
+
+</ui>

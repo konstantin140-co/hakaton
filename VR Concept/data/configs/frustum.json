@@ -1,0 +1,19 @@
+{
+  "component name": "frustum",
+  "component type": "CONSTANT",
+  "growth": "STATIC",
+  "direction": "In",
+  "members": [
+    [
+      "planes",
+      "glsl_vec4",
+      "6"
+    ],
+    [
+      "nearPointMasks",
+      "glsl_uvec4",
+      "2"
+    ]
+  ],
+  "type": "BufferArgument"
+} 

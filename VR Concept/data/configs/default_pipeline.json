@@ -1,0 +1,38 @@
+{
+  "component name": "RenderPipeline",
+  "textures": [
+    {
+      "name": "specular",
+      "shaders": ["PIXEL"],
+      "direction": "In"
+    },
+    {
+      "name": "diffuse",
+      "shaders": ["PIXEL"],
+      "direction": "In"
+    }
+  ],
+  "shaders": [
+    "default vert",
+    "default frag"
+  ],
+  "buffers": [
+    {
+      "name": "ambient_light",
+      "shaders": ["PIXEL"]
+    },
+    {
+      "name": "camera",
+      "shaders": ["VERTEX", "PIXEL"]
+    },
+    {
+      "name": "object",
+      "shaders": ["VERTEX"]
+    },
+    {
+      "name": "ds_material",
+      "shaders": ["PIXEL"]
+    }
+  ],
+  "type": "Pipeline"
+}

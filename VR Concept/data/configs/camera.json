@@ -1,0 +1,24 @@
+{
+  "component name": "camera",
+  "component type": "CONSTANT",
+  "growth": "STATIC",
+  "members": [
+    [
+      "view",
+      "shr_mat4"
+    ],
+    [
+      "projection",
+      "shr_mat4"
+    ],
+    [
+      "view_proj",
+      "shr_mat4"
+    ],
+    [
+      "position",
+      "shr_vec4"
+    ]
+  ],
+  "type": "BufferArgument"
+}  

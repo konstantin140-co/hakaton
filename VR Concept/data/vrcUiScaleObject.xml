@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+    <UiFrame3D tag="ImportScaleWindow" frame="THICK CAPTION MOVABLE HIDE_BUTTON"
+               width="0.4" height="0.45" min_frame_width="0.7" min_frame_height="0.2" caption="Import"
+               show="HIDDEN" scale="0.6">
+
+        <origin from="CENTER"/>
+
+        <UiLabel width="0.2" height="0.06" caption="Scale">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.14"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.02"/>
+        </UiLabel>
+		
+		<UiLabel width="0.05" height="0.06" caption="X">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.07"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.1"/>
+        </UiLabel>
+
+        <UiLabel width="0.05" height="0.06" caption="Y">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.19"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.1"/>
+        </UiLabel>
+
+        <UiLabel width="0.05" height="0.06" caption="Z">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.31"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.1"/>
+        </UiLabel>
+		
+		<UiEdit tag="ScaleX" width="0.1" height="0.06" caption="1">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.18"/>
+        </UiEdit>
+
+        <UiEdit tag="ScaleY" width="0.1" height="0.06" caption="1">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.14"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.18"/>
+        </UiEdit>
+
+        <UiEdit tag="ScaleZ" width="0.1" height="0.06" caption="1">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.26"/>
+            <align ref_line="TOP" with="PARENT:TOP:-0.18"/>
+        </UiEdit>
+
+        <UiButton width="0.15" height="0.06" caption="Ok" justification="CENTER">
+            <align ref_line="LEFT" with="PARENT:LEFT:0.02"/>
+            <align ref_line="BOTTOM" with="PARENT:BOTTOM:0.02"/>
+            <handler event="PRESS" plugin="ObjectLibraryView" action="Import"/>
+        </UiButton>
+
+        <UiButton width="0.15" height="0.06" caption="Cancel" justification="CENTER">
+            <align ref_line="RIGHT" with="PARENT:RIGHT:-0.02"/>
+            <align ref_line="BOTTOM" with="PARENT:BOTTOM:0.02"/>
+            <handler event="PRESS" plugin="ObjectLibraryView" action="Cancel"/>
+        </UiButton>
+
+    </UiFrame3D>
+
+</ui>

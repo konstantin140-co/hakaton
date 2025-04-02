@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<create object="UiFrame3D" tag="VirtualMenu" attachment="VR_CENTER"/>
+<create object="UiFrame3D" tag="SceneTreeView" file_name="vrcUiSceneTreeViewProRus.xml" attachment="VR_CENTER" z="-0.1" y="0.2"/>
+<create object="UiFrame3D" tag="HandPosition" attachment="VR_CENTER" z="-0.1" x="-0.5" y="0.5"/>
+<create object="UiFrame3D" tag="CheckList" attachment="VISOR" z="-0.1" x="-0.2" y="0.2"/>
+
+<UiFrame3D tag="HandPosition" frame="MOVABLE CAPTION HIDE_BUTTON" width="1.1" height="0.17" caption="Мировые координаты руки" show="HIDDEN" scale="0.5">
+
+	<origin from="LEFT_TOP"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.02" caption="X="/>
+	<UiLabel tag="X" width="0.24" height="0.08" x="0.07" justification="RIGHT"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.37" caption="Y="/>
+	<UiLabel tag="Y" width="0.24" height="0.08" x="0.42" justification="RIGHT"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.72" caption="Z="/>
+	<UiLabel tag="Z" width="0.24" height="0.08" x="0.77" justification="RIGHT"/>
+
+	<handler event="HIDE_REQUEST" plugin="HumanInput" action="CloseHandPosition"/>
+
+</UiFrame3D>
+
+<UiFrame3D tag="VirtualMenu" frame="THICK CAPTION MOVABLE HIDE_BUTTON" caption="VR Concept"
+	show="HIDDEN AUTO_FIT" auto_fit_tag="Root" scale="0.5">
+
+	<origin from="LEFT_TOP" x="0.1" y="-0.1"/>
+
+	<UiMenu tag="Root" behavior="EMBEDDED AUTO_HIDE_NESTED_AT_ONES" show="NO_FRAME">
+
+		<UiMenu tag="Scene">
+
+			<item caption="Отменить выделение">
+				<handler event="ITEM_SELECT" plugin="SceneManipulator" action="UnselectAll"/>
+			</item>
+
+			<separator/>
+
+		</UiMenu>
+
+		<UiMenu tag="Movement">
+
+			<item caption="Ходьба" icon="1">
+				<handler event="UPDATE" plugin="FreeCenterMover" action="FloorMovement_Update" param="0"/>
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="FloorMovement" param="0"/>
+			</item>
+
+			<item caption="Полёт" icon="1">
+				<handler event="UPDATE" plugin="FreeCenterMover" action="FloorMovement_Update" param="1"/>
+				<handler event="ITEM_SELECT" plugin="FreeCenterMover" action="FloorMovement" param="1"/>
+			</item>
+
+		</UiMenu>
+
+		<UiMenu tag="Clip">
+
+			<UiMenu tag="PlaneSetup">
+				<item id="1" caption="Переместить"/>
+				<item id="2" caption="Перевернуть" icon="1"/>
+				<item id="3" caption="Удалить"/>
+			</UiMenu>
+
+			<item caption="Добавить плоскость" exit="1">
+				<handler event="ITEM_SELECT" plugin="Clipper" action="CreateNewPlane"/>
+			</item>
+
+			<separator/>
+
+			<item tag="PlaneSetup" caption="Плоскость #%1"/>
+
+		</UiMenu>
+
+		<UiMenu tag="RangeMeter">
+
+			<UiMenu tag="RulerSetup">
+				<item id="1" caption="Измерить заново"/>
+				<item id="2" caption="Удалить"/>
+			</UiMenu>
+
+			<item caption="Начать измерение" exit="1">
+				<handler event="ITEM_SELECT" plugin="RangeMeter" action="StartNewMeasuring"/>
+			</item>
+
+			<item caption="Удалить все линейки" exit="1">
+				<handler event="ITEM_SELECT" plugin="RangeMeter" action="RemoveAllRulers"/>
+			</item>
+
+			<separator/>
+
+			<item tag="RulerSetup" caption="Линейка #%1"/>
+
+		</UiMenu>
+
+		<UiMenu tag="RotationAxis">
+
+			<item caption="Переместить центр оси" exit="1">
+				<handler event="ITEM_SELECT" plugin="HumanInput" action="MoveAxisCenter"/>
+			</item>
+
+			<item caption="Сброс центра оси">
+				<handler event="ITEM_SELECT" plugin="HumanInput" action="ResetAxisCenter"/>
+			</item>
+
+		</UiMenu>
+
+		<submenu submenu_tag="Scene" caption="Управление сценой"/>
+		<submenu submenu_tag="Movement" caption="Перемещение"/>
+
+		<submenu submenu_tag="Clip" caption="Настройка сечений">
+			<handler event="MENU_SETUP" plugin="Clipper" action="ClipperMenuSetup"/>
+		</submenu>
+
+		<submenu submenu_tag="RangeMeter" caption="Измерения">
+			<handler event="MENU_SETUP" plugin="RangeMeter" action="RangeMeterMenuSetup"/>
+		</submenu>
+
+		<submenu submenu_tag="RotationAxis" caption="Ось вращения"/>
+
+		<item caption="Сброс сцены" exit="1">
+			<handler event="ITEM_SELECT" plugin="SceneInteractor" action="ResetScene"/>
+		</item>
+		
+		<item caption="Сброс положения" exit="1">
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="ResetPosition"/>
+		</item>
+
+		<separator/>
+
+		<item caption="Окно дерева сцены" icon="1">
+			<handler event="UPDATE" plugin="SceneTreeView" action="ToggleSceneTreeView_Update"/>
+			<handler event="ITEM_SELECT" plugin="SceneTreeView" action="ToggleSceneTreeView"/>
+		</item>
+
+		<item caption="Окно положения руки" icon="1">
+			<handler event="UPDATE" plugin="HumanInput" action="ToggleHandPosition_Update"/>
+			<handler event="ITEM_SELECT" plugin="HumanInput" action="ToggleHandPosition"/>
+		</item>
+
+		<item caption="Окно со списком действий" icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckList_Update"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckList"/>
+		</item>
+
+		<separator/>
+
+		<item caption="Выход" exit="1"/>
+
+	</UiMenu>
+
+	<handler event="HIDE_REQUEST" plugin="HumanInput" action="CloseVirtualMenu"/>
+
+</UiFrame3D>
+
+<UiFrame3D tag="CheckList" frame="THICK CAPTION MOVABLE HIDE_BUTTON" caption="Пуск абсорбера в работу"
+	show="HIDDEN AUTO_FIT" auto_fit_tag="Root" scale="0.5">
+
+	<origin from="LEFT_TOP" x="0.1" y="-0.1"/>
+
+	<UiMenu tag="Root" behavior="EMBEDDED" show="NO_FRAME">
+
+		<item caption="1. Открыть вентиль слива амина." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="1"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="1"/>
+		</item>
+
+		<item caption="2. Открыть подачу амина." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="2"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="2"/>
+		</item>
+
+		<item caption="3. Открыть вентиль сброса газа." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="3"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="3"/>
+		</item>
+
+		<item caption="4. Открыть вентиль подачи газа." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="4"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="4"/>
+		</item>
+
+		<item caption="5. Взять пробу амина." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="5"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="5"/>
+		</item>
+
+		<item caption="6. Отрегулировать подачу амина." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="6"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="6"/>
+		</item>
+
+		<item caption="7. Отрегулировать отбор газа." icon="1">
+			<handler event="UPDATE" plugin="SimulationManager" action="ToggleCheckBox_Update" param="7"/>
+			<handler event="ITEM_SELECT" plugin="SimulationManager" action="ToggleCheckBox" param="7"/>
+		</item>
+
+	</UiMenu>
+
+	<handler event="HIDE_REQUEST" plugin="SimulationManager" action="CloseCheckList"/>
+
+</UiFrame3D>
+
+</ui>

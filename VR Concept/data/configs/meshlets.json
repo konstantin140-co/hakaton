@@ -1,0 +1,25 @@
+ {
+   "component name": "meshlets",
+   "component type": "GLOBAL",
+   "growth": "PER_INSTANCE",
+   "direction": "In",
+   "members": [
+     [
+       "numVertices",
+       "shr_uint"
+     ],
+     [
+       "vertexOffset",
+       "shr_uint"
+     ],
+     [
+       "numPrimitives",
+       "shr_uint"
+     ],
+     [
+       "indexOffset",
+       "shr_uint"
+     ]
+   ],
+  "type": "BufferArgument"
+} 

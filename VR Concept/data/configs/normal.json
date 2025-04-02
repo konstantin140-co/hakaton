@@ -1,0 +1,6 @@
+{
+  "component name": "normal",
+  "semantic" : "NORMAL",
+  "component type": "shr_vec3",
+  "type": "VertexArgument"
+}

@@ -1,0 +1,27 @@
+{
+  "component name": "CullingPipeline",
+  "shaders": [
+    "culling shader"
+  ],
+  "buffers": [
+    {
+      "name": "frustum",
+      "shaders": [
+        "COMPUTE"
+      ]
+    },
+    {
+      "name": "indirect",
+      "shaders": [
+        "COMPUTE"
+      ]
+    },
+    {
+      "name": "culling",
+      "shaders": [
+        "COMPUTE"
+      ]
+    }
+  ],
+  "type": "Pipeline"
+}

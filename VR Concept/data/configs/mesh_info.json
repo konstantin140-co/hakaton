@@ -1,0 +1,13 @@
+﻿{
+  "component name": "mesh_info",
+  "component type": "CONSTANT",
+  "growth": "STATIC",
+  "direction": "In",
+  "members": [
+    [
+      "MeshletCount",
+      "uint"
+    ]
+  ],
+  "type": "BufferArgument"
+} 

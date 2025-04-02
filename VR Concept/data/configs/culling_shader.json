@@ -1,0 +1,14 @@
+{
+  "component name": "culling shader",
+  "component type": "COMPUTE",
+  "path": "culling_comp",
+  "buffers": [
+    "frustum",
+    "indirect",
+    "culling"
+  ],
+  "textures": [
+  ],
+  "type": "Shader"
+}
+  

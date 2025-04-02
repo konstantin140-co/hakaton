@@ -1,0 +1,118 @@
+{
+  "default_bindings": [
+    {
+      "controller_type": "hpmotioncontroller",
+      "binding_url": "bindings/vrc_hpmotioncontroller.json"
+    },
+    {
+      "controller_type": "oculus_touch",
+      "binding_url": "bindings/vrc_oculus_touch.json"
+    },
+    {
+      "controller_type": "pico_controller",
+      "binding_url": "bindings/vrc_pico_controller.json"
+    },
+    {
+      "controller_type": "vive_controller",
+      "binding_url": "bindings/vrc_vive_controller.json"
+    },
+    {
+      "controller_type": "vive_cosmos_controller",
+      "binding_url": "bindings/vrc_vive_cosmos_controller.json"
+    }
+  ],
+  "actions": [
+    {
+      "name": "/actions/default/in/trigger",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/grip",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/ui_0",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/ui_1",
+      "requirement": "optional",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/ui_2",
+      "requirement": "optional",
+      "type": "boolean"
+    },
+
+    {
+      "name": "/actions/default/in/activate_move",
+      "requirement": "optional",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/move",
+      "type": "vector2"
+    },
+
+    {
+      "name": "/actions/default/in/left_hand",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/default/in/right_hand",
+      "type": "pose"
+    },
+
+    {
+      "name": "/actions/default/out/haptic",
+      "type": "vibration"
+    }
+  ],
+  "action_sets": [
+    {
+      "name": "/actions/default",
+      "usage": "leftright"
+    }
+  ],
+  "localization": [
+    {
+      "language_tag": "en_US",
+
+      "/actions/default": "Default",
+
+      "/actions/default/in/trigger": "Trigger: capture and fixation",
+      "/actions/default/in/grip": "Grip: rotation and teleport",
+      "/actions/default/in/ui_0": "UI Button 0",
+      "/actions/default/in/ui_1": "UI Button 1",
+      "/actions/default/in/ui_2": "UI Button 2",
+
+      "/actions/default/in/activate_move": "Activate Move",
+      "/actions/default/in/move": "Move",
+
+      "/actions/default/in/left_hand": "Left Hand",
+      "/actions/default/in/right_hand": "Right Hand",
+
+      "/actions/default/out/haptic": "Vibration"
+    },
+    {
+      "language_tag": "ru_RU",
+
+      "/actions/default": "По умолчанию",
+
+      "/actions/default/in/trigger": "Курок: захват и фиксация",
+      "/actions/default/in/grip": "Хват: поворот и телепорт",
+      "/actions/default/in/ui_0": "Управление UI 0",
+      "/actions/default/in/ui_1": "Управление UI 1",
+      "/actions/default/in/ui_2": "Управление UI 2",
+
+      "/actions/default/in/activate_move": "Активировать движение",
+      "/actions/default/in/move": "Двигаться",
+
+      "/actions/default/in/left_hand": "Левая рука",
+      "/actions/default/in/right_hand": "Правая рука",
+
+      "/actions/default/out/haptic": "Вибрация"
+    }
+  ]
+}

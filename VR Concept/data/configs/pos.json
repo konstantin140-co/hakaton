@@ -1,0 +1,6 @@
+{
+  "component name": "pos",
+  "semantic" : "SV_POSITION",
+  "component type": "shr_vec3",
+  "type": "VertexArgument"
+} 

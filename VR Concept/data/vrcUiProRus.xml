@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+
+<create object="UiFrame3D" tag="VirtualMenu" file_name="vrcUiVirtualMenuProRus.xml" attachment="VR_CENTER"/>
+<create object="UiFrame3D" tag="SceneTreeView" file_name="vrcUiSceneTreeViewProRus.xml" attachment="VR_CENTER" z="-0.1" y="0.2"/>
+<create object="UiFrame3D" tag="HandPosition" attachment="VR_CENTER" z="-0.1" x="-0.5" y="0.5"/>
+<create object="UiFrame3D" tag="AssemblyAnimation" file_name="vrcUiSceneTreeViewProRus.xml" attachment="VR_CENTER" z="-0.1" x="-0.5"/>
+<create object="UiFrame3D" tag="RenameWindow" file_name="vrcUiRenameWindowRus.xml" z="-0.1"/>
+<create object="UiFrame3D" tag="ImportScaleWindow" file_name="vrcUiScaleObjectRus.xml" z="-0.1"/>
+
+<UiFrame3D tag="HandPosition" frame="MOVABLE CAPTION HIDE_BUTTON" width="1.1" height="0.17" caption="Мировые координаты руки" show="HIDDEN" scale="0.5">
+
+	<origin from="LEFT_TOP"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.02" caption="X="/>
+	<UiLabel tag="X" width="0.24" height="0.08" x="0.07" justification="RIGHT"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.37" caption="Y="/>
+	<UiLabel tag="Y" width="0.24" height="0.08" x="0.42" justification="RIGHT"/>
+
+	<UiLabel width="0.05" height="0.08" x="0.72" caption="Z="/>
+	<UiLabel tag="Z" width="0.24" height="0.08" x="0.77" justification="RIGHT"/>
+
+	<handler event="HIDE_REQUEST" plugin="HumanInput" action="CloseHandPosition"/>
+
+</UiFrame3D>
+
+</ui>

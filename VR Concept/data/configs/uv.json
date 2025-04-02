@@ -1,0 +1,6 @@
+{
+  "component name": "uv",
+  "semantic" : "TEXCOORD0",
+  "component type": "shr_vec2",
+  "type": "VertexArgument"
+} 

@@ -84,7 +84,7 @@ def game_loop():
 
         # Отрисовка
         screen.fill((0,0,0))
-        pygame.draw.circle(screen, (0,255,0),
+        pygame.draw.square(screen, (0,255,0),
             (game.player['x'], game.player['y']), 15)
         for bullet in game.bullets:
             pygame.draw.rect(screen, (255,0,0),
